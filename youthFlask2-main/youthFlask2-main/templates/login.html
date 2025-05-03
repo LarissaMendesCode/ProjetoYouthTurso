@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Login</h2>
+<form action="/login" method="post">
+    <div class="input-field">
+        <input type="email" name="email" class="validate">
+        <label for="email">Email</label>
+    </div>
+    <div class="input-field">
+        <input type="password" name="password" class="validate">
+        <label for="password">Senha</label>
+    </div>
+    <button type="submit" class="waves-effect waves-light btn red darken-1">Login</button>
+
+    <a href="/registro" class="right">Cadastre-se</a>
+</form>
+
+{% if error %}
+    <script>
+        redirecionar = confirm("{{ error }}");
+        if(redirecionar) {
+            window.location.href = "/registro";
+        }
+    </script>
+{% endif %}
+
+{% endblock %}
